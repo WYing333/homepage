@@ -1,6 +1,6 @@
 import UsageBar from "../resources/usage-bar";
 
-export default function Resource({
+export default function ResourceWidget({
   children,
   icon,
   value,
