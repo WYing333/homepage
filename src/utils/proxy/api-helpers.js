@@ -1,4 +1,8 @@
 export function formatApiCall(url, args) {
+  if (!url) {
+    return "";
+  }
+
   const find = /\{.*?\}/g;
   const replace = (match) => {
     const key = match.replace(/\{|\}/g, "");
