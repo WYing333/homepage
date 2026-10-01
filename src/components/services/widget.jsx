@@ -1,12 +1,19 @@
 import { useTranslation } from "next-i18next/pages";
 
+import IcalIntegration from "../../widgets/calendar/integrations/ical";
+
 import ErrorBoundary from "components/errorboundry";
 import components from "widgets/components";
+
+// widget types rendered straight from a calendar integration instead of a registered component
+const standaloneIntegrations = {
+  ical: IcalIntegration,
+};
 
 export default function Widget({ widget, service }) {
   const { t } = useTranslation("common");
 
-  const ServiceWidget = components[widget.type];
+  const ServiceWidget = components[widget.type] ?? standaloneIntegrations[widget.type];
 
   const fullService = { ...service, widget };
   if (ServiceWidget) {
