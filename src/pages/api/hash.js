@@ -16,7 +16,7 @@ const configs = [
 
 function hash(buffer) {
   const hashSum = createHash("sha256");
-  hashSum.update(buffer);
+  hashSum.update(buffer ?? "");
   return hashSum.digest("hex");
 }
 
